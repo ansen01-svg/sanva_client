@@ -5,9 +5,17 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { List } from '@mui/material';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import { clearFromStorages, signOut } from '../.././utils/utils_functions';
 
 
 const SignOutList = () => {
+
+    const handleClick = () => {
+        signOut()
+        clearFromStorages()
+        window.location.reload()
+    }
+
     return (
         <List
             sx={{
@@ -18,7 +26,7 @@ const SignOutList = () => {
         >
             <ListItem disablePadding>
                 <ListItemButton
-                    onClick={() => console.log('sign out')}
+                    onClick={handleClick}
                 >
                     <ListItemIcon>
                         <LogoutIcon />

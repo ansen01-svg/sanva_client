@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { bottomNavigation } from "../../utils/arrays";
 import ListItem from "./list_item";
-import { storeInLocalStorage, getFromLocalStorage, getPageIndex } from "../../utils/utils_functions";
+import { storeInSessionStorage, getFromSessionStorage, getPageIndex } from "../../utils/utils_functions";
 
 
 const SidebarContent = () => {
-    const currentPage = getFromLocalStorage('currentPage')
+    const currentPage = getFromSessionStorage('currentPage')
 
     const [selectedIndex, setSelectedIndex] = useState(getPageIndex(currentPage));
 
@@ -18,7 +18,7 @@ const SidebarContent = () => {
         navigate(linkTo)
 
         const currentPage = bottomNavigation.find(item => item.id === index)
-        storeInLocalStorage('currentPage', currentPage.title)
+        storeInSessionStorage('currentPage', currentPage.title)
     }
 
     return (

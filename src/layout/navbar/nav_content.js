@@ -3,11 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { bottomNavigation } from '../../utils/arrays';
-import { storeInLocalStorage, getFromLocalStorage, getPageIndex } from '../.././utils/utils_functions';
+import {
+    storeInSessionStorage,
+    getFromSessionStorage,
+    removeFromSessionStorage,
+    getPageIndex
+} from '../.././utils/utils_functions';
 
 
 const NavContent = () => {
-    const currentPage = getFromLocalStorage('currentPage')
+    const currentPage = getFromSessionStorage('currentPage')
 
     const [index, setIndex] = useState(getPageIndex(currentPage));
 
@@ -20,13 +25,13 @@ const NavContent = () => {
     const handleClick = (link, page) => {
         navigate(link)
         
-        const currentPage = localStorage.getItem('currentPage')
+        const currentPage = getFromSessionStorage('currentPage')
 
         if(currentPage) {
-            localStorage.removeItem('currentPage')
-            storeInLocalStorage('currentPage', page)
+            removeFromSessionStorage('currentPage')
+            storeInSessionStorage('currentPage', page)
         } else {
-            storeInLocalStorage('currentPage', page)
+            storeInSessionStorage('currentPage', page)
         }
     }
 

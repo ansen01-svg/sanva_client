@@ -1,10 +1,13 @@
 import Button from '../../components/button';
 import { Box } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useSelector } from 'react-redux';
 
 
 const UserHolder = (props) => {
     const { id, handleClick } = props;
+
+    const { user } = useSelector(state => state.appReducer);
 
     return (
         <Box>
@@ -15,7 +18,7 @@ const UserHolder = (props) => {
                 id={id}
                 onClick={handleClick}
             >
-                ruth megu
+                { user && user.user }
             </Button>
         </Box>
     )

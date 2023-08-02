@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getUser } from "./app_thunks";
 
 
-export const getCurrentUser = createAsyncThunk('appSlice/getUser', getUser)
+export const getCurrentUser = createAsyncThunk('appSlice/getCurrentUser', getUser)
 
 const initialState = {
     mode: localStorage.getItem('mode') || 'light',
-    isUserLoggedIn: false,
-    user: null,
+    user: (localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null),
+    userProfile: {},
 }
 
 export const appSlice = createSlice({
@@ -18,17 +18,15 @@ export const appSlice = createSlice({
             if(state.mode === payload) return;
             state.mode = payload
         },
-        setSidebar: state => state.isSidebarOpen = true,
-        setUserLogIn: state => state.isUserLoggedIn = true,
     },
     extraReducers: {
-        [getUser.fulfilled]: (state, { payload }) => {
+        [getCurrentUser.fulfilled]: (state, { payload }) => {
             state.user = payload
         }
     }
-})
+});
 
-export const { setMode, setSidebar, setUserLogIn } = appSlice.actions;
+export const { setMode, setUserLogIn } = appSlice.actions;
 
 
 export default appSlice.reducer;

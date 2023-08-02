@@ -1,15 +1,13 @@
-const getUser = () => {
-    let user;
+import axios from 'axios';
 
-    fetch('apis/v1/users/getCurrentUser', {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'GET'
-    })
-    .then(response => response.json())
-    .then(data => data = user)
-    .catch(error => console.log(error))
 
-    return user;
+const getUser = async() => {
+    try {
+        const { data } = await axios.get('apis/v1/users/getCurrentUser');
+        return data.user;
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 
