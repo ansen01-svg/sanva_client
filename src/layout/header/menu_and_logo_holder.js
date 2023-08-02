@@ -1,7 +1,6 @@
 import { Box, IconButton, } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../../utils/logo.png';
-import { Link } from 'react-router-dom';
 import ImageHolder from '../../components/image_holder';
 import useWindowWidth from '../../hooks/useWindowWidth';
 import { useEffect, useRef } from 'react';
@@ -42,14 +41,12 @@ const MenuAndLogoHolder = (props) => {
             >
                 <MenuIcon sx={{ fontSize: '25px' }} />
             </IconButton>
-            <Link to='/'>
-                <ImageHolder
-                    src={logo}
-                    alt='logo_dark'
-                    width='100px'
-                    height='40px'
-                />
-            </Link>
+            <ImageHolder
+                src={logo}
+                alt='logo_dark'
+                width='100px'
+                height='40px'
+            />
         </Box>
     )
 }

@@ -48,9 +48,6 @@ const MainList = () => {
             component="nav"
             aria-labelledby="nested-list-subheader"
         >
-            <ListItemButton onClick={logOut} >
-                <ListItemText primary="Sign out" />
-            </ListItemButton>
             <ListItemButton onClick={handleClick}>
                 <ListItemText primary="Appearance" />
                 {open ? <ExpandLess /> : <ExpandMore />}
@@ -61,6 +58,9 @@ const MainList = () => {
                     handleListItemClick={handleListItemClick}
                 />
             </Collapse>
+            <ListItemButton onClick={logOut} >
+                <ListItemText primary="Sign out" />
+            </ListItemButton>
         </List>
     )
 }

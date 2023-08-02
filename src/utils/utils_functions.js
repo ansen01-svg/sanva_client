@@ -1,4 +1,5 @@
 import { bottomNavigation } from "./arrays";
+import API from './api_endpoint';
 
 
 const storeInSessionStorage = (key, value) => sessionStorage.setItem(key, value)
@@ -27,14 +28,7 @@ const getPageIndex = (pageTitle) => {
     return currentPage.id;
 }
 
-const signOut = () => {
-    fetch('apis/v1/auth/logout', {
-        method: 'DELETE'
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
-}
+const signOut = async () =>  await API.delete('apis/v1/auth/logout')
 
 
 export {

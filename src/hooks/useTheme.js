@@ -5,7 +5,7 @@ const useTheme = (palette) => {
     const theme = createTheme({
         palette: palette,
         typography: {
-            fontSize: '1.4rem',
+            fontSize: 14,
             fontFamily: [
                 '-apple-system',
                 'BlinkMacSystemFont',
@@ -19,7 +19,7 @@ const useTheme = (palette) => {
                 '"Segoe UI Symbol"',
             ].join(','),
             h1: {
-                fontSize: '1.4rem',
+                fontSize: 14,
                 fontWeight: '600'
             },
             h2: {
