@@ -1,14 +1,23 @@
 import { bottomNavigation } from "./arrays";
 
 
-const storeInLocalStorage = (key, value) => {
-    localStorage.setItem(key, value)
-}
+const storeInSessionStorage = (key, value) => sessionStorage.setItem(key, value)
 
-const getFromLocalStorage = (key) => {
-    const value = localStorage.getItem(key)
+const getFromSessionStorage = (key) => {
+    const value = sessionStorage.getItem(key)
 
     return value;
+}
+
+const removeFromSessionStorage = (key) => sessionStorage.removeItem(key);
+
+const clearSessionStorage = () => sessionStorage.clear();
+
+const clearLocalStorage = () => localStorage.clear();
+
+const clearFromStorages = () => {
+    clearSessionStorage();
+    clearLocalStorage();
 }
 
 const getPageIndex = (pageTitle) => {
@@ -18,9 +27,23 @@ const getPageIndex = (pageTitle) => {
     return currentPage.id;
 }
 
+const signOut = () => {
+    fetch('apis/v1/auth/logout', {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
+}
+
 
 export {
-    storeInLocalStorage,
-    getFromLocalStorage,
+    storeInSessionStorage,
+    getFromSessionStorage,
     getPageIndex,
+    removeFromSessionStorage,
+    clearSessionStorage,
+    clearLocalStorage,
+    clearFromStorages,
+    signOut,
 }

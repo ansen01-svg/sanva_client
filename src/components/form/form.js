@@ -9,7 +9,7 @@ import RegisterFormHolder from './register_form_holder';
 const Form = (props) => {
     const { width, height, fields } = props;
 
-    const { message: loginMessage, errorMessage: loginErrorMessage, handleLogin } = useLogin();
+    const { errorMessage: loginErrorMessage, handleLogin } = useLogin();
     const { message: registerMessage, errorMessage: registerErrorMessage, handleRegister } = useRegister();
 
     const loginPage = (+fields !== 3)
@@ -25,7 +25,7 @@ const Form = (props) => {
 
     if(loginPage) {
         return (
-            <LoginFormHolder
+            <LoginFormHolder 
                 width={width}
                 height={height}
                 handleFormSubmit={handleFormSubmit}
@@ -33,7 +33,6 @@ const Form = (props) => {
                 register={register}
                 reset={reset}
                 initialState={initialState}
-                loginMessage={loginMessage}
                 loginErrorMessage={loginErrorMessage}
                 watch={watch}
             />

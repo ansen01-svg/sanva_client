@@ -1,34 +1,26 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 
 
 const useLogin = () => {
     const navigate = useNavigate();
-    const [message, setMessage] = useState('');
+
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleLogin = (data, reset, initialValues) => {
+    const handleLogin = async (userData, reset, initialValues) => {
+        try {
+            const { data } = await axios.post('apis/v1/auth/login', userData);
 
-        fetch('apis/v1/auth/login', {
-            headers: { "Content-Type": 'application/json;charset=utf-8' },
-            body: JSON.stringify(data),
-            method: 'POST'
-        })
-        .then(async(response) => {
-            if(response.status === 200) {
-                localStorage.setItem('user', JSON.stringify(data.email))
-                const res = await response.json()
-                setMessage(res.msg)
-                reset(initialValues)
-                navigate('/')
-            }
-            return response.json()
-        })
-        .then(data => setErrorMessage(data.msg))
-        .catch(error => console.log(error))
+            localStorage.setItem('user', JSON.stringify(data.user))
+            reset(initialValues)
+            navigate('/')
+        } catch (error) {
+            setErrorMessage(error.response.data.msg)
+        }
     }
 
-    return { message, errorMessage, handleLogin };
+    return { errorMessage, handleLogin };
 }
 
 

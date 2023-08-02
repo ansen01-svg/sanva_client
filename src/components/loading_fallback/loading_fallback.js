@@ -3,13 +3,13 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 const LoadingFallback = (props) => {
-    const { width, height, color, value } = props;
+    const { color, value } = props;
 
     return (
         <Box
             sx={{
-                width: (width || '100%'),
-                height: (height || '100%'),
+                flexGrow: 1,
+                height: 'calc(100vh - 64px)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'

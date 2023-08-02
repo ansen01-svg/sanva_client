@@ -6,6 +6,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { setMode } from '../../redux/app_slice';
 import SubList from './sub_list';
+import { clearFromStorages, signOut } from '../.././utils/utils_functions';
 
 
 const MainList = () => {
@@ -32,6 +33,12 @@ const MainList = () => {
         }
     }
 
+    const logOut = () => {
+        signOut()
+        clearFromStorages()
+        window.location.reload()
+    }
+
     return (
         <List
             sx={{
@@ -41,7 +48,7 @@ const MainList = () => {
             component="nav"
             aria-labelledby="nested-list-subheader"
         >
-            <ListItemButton>
+            <ListItemButton onClick={logOut} >
                 <ListItemText primary="Sign out" />
             </ListItemButton>
             <ListItemButton onClick={handleClick}>
