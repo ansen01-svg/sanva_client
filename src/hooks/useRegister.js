@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import API from "../utils/api_endpoint";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -11,7 +11,7 @@ const useRegister = () => {
 
     const handleRegister = async(userData, reset, initialValues) => {
         try {
-            const { data } = await axios.post('apis/v1/auth/register', userData);
+            const { data } = await API.post('apis/v1/auth/register', userData);
             
             setMessage(data.msg)
             reset(initialValues)
