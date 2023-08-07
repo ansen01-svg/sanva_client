@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Layout from '../layout';
 import ProtectedRoute from './protected_route';
 import Login from '../pages/login';
@@ -23,7 +23,7 @@ const AppRoutes = () => {
     const currentPalette = (mode === 'dark' ? darkPalette : lightPalette)
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path='/' element={
                     <ProtectedRoute>
@@ -41,7 +41,7 @@ const AppRoutes = () => {
                 <Route path='/login' element={<Login />} />
                 <Route path='*' element={<SuspendedComponent fallback={<LoadingFallback width='100vw' height='100vh' />} component={<Notfound />} />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
