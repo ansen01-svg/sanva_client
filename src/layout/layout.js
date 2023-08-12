@@ -13,7 +13,7 @@ const Layout = () => {
   const mobileScreen = useWindowWidth();
 
   const [isDesktopSidebarOpen, setIsDesktopSidebarOpen] = useState(true);
-  const [isMobileSidebarOpen, setIsMObileSidebarOpen] = useState(false);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   useEffect(() => {
     dispatch(setUser());
@@ -22,7 +22,7 @@ const Layout = () => {
   useEffect(() => {
     if (!mobileScreen) {
       setIsDesktopSidebarOpen(true);
-      setIsMObileSidebarOpen(false);
+      setIsMobileSidebarOpen(false);
     } else {
       setIsDesktopSidebarOpen(false);
     }
@@ -35,7 +35,7 @@ const Layout = () => {
     ) {
       return;
     }
-    setIsMObileSidebarOpen(toggle);
+    setIsMobileSidebarOpen(toggle);
   };
 
   return (

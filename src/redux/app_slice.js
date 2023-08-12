@@ -8,7 +8,6 @@ export const getCurrentUser = createAsyncThunk(
 
 const initialState = {
   mode: localStorage.getItem("mode") || "light",
-  // user: (localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null),
   user: null,
   userProfile: {},
 };
