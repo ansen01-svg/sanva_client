@@ -1,4 +1,3 @@
-import MobileSidebar from './mobile_sidebar';
-
+import MobileSidebar from "./mobile_sidebar";
 
 export default MobileSidebar;

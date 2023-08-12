@@ -1,9 +1,7 @@
-import MainList from './main_list';
-
+import MainList from "./main_list";
 
 const PopoverContent = () => {
-    return <MainList />
-}
-
+  return <MainList />;
+};
 
 export default PopoverContent;
