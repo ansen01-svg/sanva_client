@@ -1,4 +1,3 @@
-import AppStoreProvider from './app_store_provider';
-
+import AppStoreProvider from "./app_store_provider";
 
 export default AppStoreProvider;

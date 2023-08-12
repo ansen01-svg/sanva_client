@@ -1,4 +1,3 @@
-import LoadingFallback from "./loading_fallback"
-
+import LoadingFallback from "./loading_fallback";
 
 export default LoadingFallback;

@@ -1,4 +1,3 @@
-import ErrorBoundary from './error_boundary';
-
+import ErrorBoundary from "./error_boundary";
 
 export default ErrorBoundary;

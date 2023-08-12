@@ -1,13 +1,12 @@
 const initialRegisterCredentials = {
-    email: '',
-    username: '',
-    password: '',
-}
+  email: "",
+  username: "",
+  password: "",
+};
 
 const initialLoginCredentials = {
-    email: '',
-    password: '',
-}
+  email: "",
+  password: "",
+};
 
-
-export { initialRegisterCredentials, initialLoginCredentials, };
+export { initialRegisterCredentials, initialLoginCredentials };

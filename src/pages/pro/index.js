@@ -1,4 +1,3 @@
-import ProPage from './pro';
-
+import ProPage from "./pro";
 
 export default ProPage;
